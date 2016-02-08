@@ -24,7 +24,7 @@ var ball_scale = table_scale/20;
 var pocket_scale = 1.5;
 var rack_ball_spacing = 0.01;
 
-var skimming_friction = 1/400;
+var skimming_friction = 1/200;
 var rolling_threshold = skimming_friction * 30;
 var rolling_friction = skimming_friction / 20;
 var static_threshold = rolling_friction * 10;
@@ -32,8 +32,6 @@ var static_threshold = rolling_friction * 10;
 var strength_scaling = 2.5;
 var masse_scaling = 1;
 
-// Probably can be done with require.js
-// >>>>> START REQUIRE
 var classes = new Array(
         "Ball",
         "Cushion",
@@ -53,31 +51,25 @@ var i;
 for (i=0; i<classes.length; ++i) {
   document.write( "<script type='text/javascript' src='js/" + classes[i] + ".js'></script>" );
 }
-// >>>>> END REQUIRE
 
 function status_message( prefix, msg) {
-    // >>>>> START jQuery
     var elem = document.getElementById("msg");
     var txt = prefix;
     if (msg != null) {
         txt += ": " + msg;
     }
     elem.innerHTML = txt;
-    // >>>>> END jQuery
 }
 
 function append_status_message( prefix, msg) {
-    // >>>>> START jQuery
     var elem = document.getElementById("msg");
     elem.innerHTML += "<br>" + prefix + ": " + msg;
-    // >>>>> END jQuery
 }
 
 
 var draw_id = null;
 
 function GetXmlHttpObject() {
-    // >>>>> START jQuery
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         return new XMLHttpRequest();
@@ -87,28 +79,24 @@ function GetXmlHttpObject() {
         return new ActiveXObject("Microsoft.XMLHTTP");
     }
     return null;
-    // >>>>> END jQuery
 }
 
 var current_game;
 function set_player_type(form, index) {
   if (!current_game) return;
-  // >>>>> START jQuery
+
   var type_rb = document.getElementsByName(form);
   for (var i = 0; i < type_rb.length; ++i) {
     if (type_rb[i].checked) {
       current_game.set_player_type(type_rb[i].value, index);
     }
   }
-  // >>>>> END jQuery
 }
 
 var DEBUG = false;
 function set_debug_mode(name) {
-  // >>>>> START jQuery
   var debug_input = document.getElementsByName(name);
   DEBUG = debug_input[0].checked;
-  // >>>>> END jQuery
 }
 
 function init_pool_table(name) {
