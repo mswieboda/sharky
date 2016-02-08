@@ -5,9 +5,12 @@ lib_dir = "#{File.expand_path(File.dirname(__FILE__) + '/lib')}"
 $LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
 
 require 'sinatra'
+require 'slim'
 require 'sharky'
+
+set :bind, '0.0.0.0'
 
 get '/hi' do
   Sharky::App.test
-  "Hello Shark!"
+  slim :index
 end

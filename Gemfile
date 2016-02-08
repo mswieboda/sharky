@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 ruby `cat ./.ruby-version`
 
@@ -7,10 +7,12 @@ gem 'pry'
 gem 'pry-byebug'
 gem 'simplecov', :require => false, :group => :test
 
-gem 'sinatra'
+# Rack server
+gem 'unicorn'
 
 # Autoreload server
 gem 'rerun'
 
-# Rack server
-gem 'unicorn'
+gem 'sinatra'
+
+gem 'slim'
