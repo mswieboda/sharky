@@ -180,6 +180,9 @@ Ball.prototype.do_collision = function ( other ) {
   var collision_unit = separation.unit();
   var collision_speed = collision_unit.dot_product( this.velocity );
 
+  // MATT: Add some type of friction to collision speed?
+  collision_speed += skimming_friction;
+
   if (collision_speed < 0) {
     this.acceleration.add_scaled( collision_unit, -collision_speed );
     other.acceleration.add_scaled( collision_unit, collision_speed );

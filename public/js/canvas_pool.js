@@ -24,7 +24,7 @@ var ball_scale = table_scale/20;
 var pocket_scale = 1.5;
 var rack_ball_spacing = 0.01;
 
-var skimming_friction = 1/200;
+var skimming_friction = 1/100;
 var rolling_threshold = skimming_friction * 30;
 var rolling_friction = skimming_friction / 20;
 var static_threshold = rolling_friction * 10;
