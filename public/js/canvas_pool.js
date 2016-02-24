@@ -35,7 +35,7 @@ var masse_scaling = 1;
 var classes = new Array(
         "Ball",
         "Cushion",
-        "game",
+        "Game",
         "Line",
         "Player",
         "Pocket",
